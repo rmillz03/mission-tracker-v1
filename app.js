@@ -18,8 +18,8 @@ app.use(express.static("public"))
 app.use(express.urlencoded({ extended: false })) //need to allow pages to access form data
 
 //----------- Routes -----------
-// const userRoute = require('./routes/userRoute');
-// app.use('/userRoute', userRoute);
+const userRoute = require('./routes/userRoute');
+app.use('/userRoute', userRoute);
 // const flightRoute = require('./routes/flightRoute');
 // app.use('/flightRoute', flightRoute);
 // const crewRoute = require('./routes/crewRoute');
@@ -30,8 +30,8 @@ app.use(express.urlencoded({ extended: false })) //need to allow pages to access
 
 //----------- Get the Party Started! -----------
 app.get('/', (req, res) => {
-    //res.redirect('/userRoute/login');
-    res.render('/users/login.ejs');
+    res.redirect('/userRoute/login');
+    //res.render('/users/login.ejs');
 });
  
 app.listen(port, () => console.log("Server is running..."));
