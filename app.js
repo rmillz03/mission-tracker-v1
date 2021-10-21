@@ -20,12 +20,12 @@ app.use(express.urlencoded({ extended: false })) //need to allow pages to access
 //----------- Routes -----------
 const userRoute = require('./routes/userRoute');
 app.use('/userRoute', userRoute);
-// const flightRoute = require('./routes/flightRoute');
-// app.use('/flightRoute', flightRoute);
-// const crewRoute = require('./routes/crewRoute');
-// app.use('/crewRoute', crewRoute);
-// const planeRoute = require('./routes/planeRoute');
-// app.use('/planeRoute', planeRoute);
+const flightRoute = require('./routes/flightRoute');
+app.use('/flightRoute', flightRoute);
+const crewRoute = require('./routes/crewRoute');
+app.use('/crewRoute', crewRoute);
+const planeRoute = require('./routes/planeRoute');
+app.use('/planeRoute', planeRoute);
 
 
 //----------- Get the Party Started! -----------
