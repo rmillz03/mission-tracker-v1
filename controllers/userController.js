@@ -1,8 +1,9 @@
+const session = require('express-session');
 const User = require('../models/userModel');
 
 
 // *****************************
-//         LOGIN
+//         LOGIN / LOGOUT
 // *****************************
 exports.login = (req, res) => {
     res.render('users/login.ejs', { layout: 'layouts/loginLayout' });
@@ -16,18 +17,23 @@ exports.submitLogin = async (req, res, next) => {
         //check password match
         if (req.body.password == user[0].password)
         {
-            res.render('users/dashboard.ejs', { firstName: user[0].first_name });
+            req.session.user = user[0].first_name;
+            res.render('users/dashboard.ejs', { firstName: user[0].first_name, session: req.session.user });
         }
         else
         {
-            res.send("Incorrect login. Correct: ${user.password}. Entered: ${req.body.passowrd}");
+            //res.send("Incorrect login. Correct: ${user.password}. Entered: ${req.body.passowrd}");
+            alert("Incorrect login credentials. Please try again.");
         }
     } catch (error) {
         console.log(error);
         next(error);
     }
+}
 
-
+exports.logout = (req, res) => {
+    req.session.destroy();
+    res.redirect('/userRoute/login');
 }
 
 // *****************************
@@ -58,8 +64,6 @@ exports.submitReg = async (req, res, next) => {
 //         DASHBOARD
 // *****************************
 exports.dashboard = (req, res) => {
-    let name = "User";
-    
-    res.render('users/dashboard.ejs', { firstName: name });
+    res.render('users/dashboard.ejs', { firstName: req.session.user });
 }
 

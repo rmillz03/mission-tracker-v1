@@ -73,7 +73,7 @@ body::before
 
 .btn
 {
-    min-width: 150px;
+    min-width: 125px;
     background: none;
     border: 2px solid #FCA311;
     color: #14213D;
