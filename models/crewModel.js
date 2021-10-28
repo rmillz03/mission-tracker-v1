@@ -43,6 +43,15 @@ class Crew {
 
         return db.execute(sql);
     }
+
+    static findCrew(crewType)
+    {
+        let sql = `SELECT * FROM crew WHERE ${crewType}='1';`;
+
+        console.log('FindCrew: ' + sql);
+
+        return db.execute(sql);
+    }
 }
 
 module.exports = Crew;

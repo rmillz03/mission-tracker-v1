@@ -2,8 +2,18 @@
     <fieldset>
         <legend>Create Mission</legend>
         <div class="flex-container">
-            <input class="flex-item" type="number" id="pilot1" name="pilot1" placeholder="Pilot Name"> <br/>
-            <input class="flex-item" type="number" id="tailNum" name="tailNum" placeholder="Tail Number"> <br/>
+           <!--  <input class="flex-item" type="number" id="pilot1" name="pilot1" placeholder="Pilot Name"> <br/> -->
+            <select class="flex-item" id="pilot1" name="pilot1">
+                <% pilots.forEach(flyboy => { %>
+                    <option value="<%= flyboy.crewID %>"><%= flyboy.name %></option>
+             <% }); %>
+            </select>
+            <!-- <input class="flex-item" type="number" id="tailNum" name="tailNum" placeholder="Tail Number"> <br/> -->
+            <select class="flex-item" id="tailNum" name="tailNum">
+                <% aircraft.forEach(plane => { %>
+                    <option value="<%= plane.tailNum %>"><%= plane.tailNum %></option>
+             <% }); %>
+            </select>
             <input class="flex-item" type="string" id="ETD" name="ETD" placeholder="ETD"> <br/>
             <input class="flex-item" type="number" id="julianDate" name="julianDate" value="<%= julian %>"> <br/>
         </div>

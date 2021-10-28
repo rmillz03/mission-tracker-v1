@@ -1,4 +1,6 @@
 const Flight = require("../models/flightModel");
+const Crew = require("../models/crewModel");
+const Planes = require("../models/planeModel");
 
 // *****************************
 //         ALL FLIGHTS
@@ -16,12 +18,18 @@ exports.allFlights = async (req,res) => {
 // *****************************
 //         CREATE FLIGHT
 // *****************************
-exports.flightForm = (req, res) => {
+exports.flightForm = async (req, res) => {
     let julianDate = 21290;
 
     //load recordset for pilots and planes
+    let [pilots, _] = await Crew.findCrew('pilot');
+    let [aircraft, n] = await Planes.findAll();
     
-    res.render('flights/flightForm.ejs', { julian: julianDate });
+    res.render('flights/flightForm.ejs', { 
+        julian: julianDate,
+        pilots: pilots,
+        aircraft: aircraft
+     });
 }
 
 exports.createFlight = async (req, res, next) => {
