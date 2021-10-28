@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const userController = require('../controllers/userController');
 const passport = require('passport');
-const session = require('express-session');
+//const session = require('express-session');
 
 function ensureAuthenticated(req, res, next)
 {
@@ -18,9 +18,12 @@ router
     .route("/login")
     .get(userController.login)
     .post(
-        passport.authenticate('local', { failureRedirect: userController.login }),
+        passport.authenticate('local', { 
+            failureRedirect: '/userRoute/login',
+            failureFlash: true    //flash message
+        }),
         userController.submitLogin
-        );
+    );
 
 router
     .route("/register")

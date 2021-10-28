@@ -91,3 +91,20 @@ body::before
     background-color: #14213D;
     color: white;
 }
+
+.error
+{
+    width: 275px;
+    text-align: center;
+    background: none;
+    background-color: #14213D;
+    border: 2px solid #FCA311;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 10px;
+    text-decoration: none;
+    display: inline-block;
+}

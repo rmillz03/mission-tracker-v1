@@ -9,8 +9,9 @@ const User = require('../models/userModel');
 //         LOGIN / LOGOUT
 // *****************************
 exports.login = (req, res) => {
-    const errors = req.flash().error || [];
-    res.render('users/login.ejs', { layout: 'layouts/loginLayout', errors });
+    const errors = req.flash().error || "";
+    console.log('Errors: ' + errors);
+    res.render('users/login.ejs', { layout: 'layouts/loginLayout', errors: errors });
 }
 
 exports.submitLogin = (req, res) => {

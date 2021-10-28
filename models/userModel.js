@@ -45,6 +45,8 @@ class User {
     {
         let sql = `SELECT * FROM user WHERE user_name = '${id}';`;
 
+        //console.log('findOne: ' + sql);         //debugging
+
         return db.execute(sql);
     }
 }

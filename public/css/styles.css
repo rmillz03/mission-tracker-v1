@@ -219,3 +219,90 @@ td, th
 tbody tr:nth-child(odd) {
     background: #eee;
   }
+
+/* *******************************
+      DASHBOARD DESCRIPTION 
+******************************** */
+.descrip
+{
+    width: 50%;
+    margin-left: 20px;
+}
+
+.descrip a:link
+{
+    color: #FCA311;
+}
+
+.descrip a:visited 
+{
+    color: #FCA311;
+}
+
+.descrip a:hover
+{
+    background-color: #14213D;
+    color: white;
+}
+
+.descrip ul
+{
+    line-height: 1.5em;
+    margin: 5px 0 15px;
+}
+
+.descrip li
+{
+    list-style: none;
+    position: relative;
+    padding: 0 0 0 30px;
+}
+
+/* Thanks to Sharkcoder.com for the
+   following list item icons */
+
+li.curved-arrow::before {
+    content: "";
+    position: absolute;
+    width: 0; 
+    height: 0;
+    left: 4px;
+    top: 3px;
+    border-top: 9px solid transparent; 
+    border-right: 9px solid #14213D;
+    transform: rotate(10deg);
+  }
+  
+  li.curved-arrow::after {
+    content: "";
+    position: absolute;
+    border: 0 solid transparent; 
+    border-top: 3px solid #14213D;
+    border-radius: 20px 0 0 0; 
+    top: 0; 
+    left: -5px; 
+    width: 12px; 
+    height: 12px; 
+    transform: rotate(45deg);
+  }
+
+  li.circle-checkmark::before {
+    content: ""; 
+    position: absolute; 
+    left: 0; 
+    top: 2px; 
+    border: solid 8px #14213D;
+    border-radius: 8px;
+  }
+  
+  li.circle-checkmark::after {
+    content: ""; 
+    position: absolute; 
+    left: 5px;
+    top: 5px;
+    width: 3px;
+    height: 6px;
+    border: solid #FCA311;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }

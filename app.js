@@ -11,7 +11,6 @@ const passport = require('passport');                   //authentication
 const LocalStrategy = require('passport-local');
 const configPassport = require('./passport-config');
 const flash = require('connect-flash');                 //send session messages
-const dynamicHelpers = require('express-dynamic-helpers-patch');  //use to access passport user elements
 const app = express();
 const port = process.env.PORT || 8080;
 
@@ -40,17 +39,6 @@ app.use(flash());
 //----------- Passport -----------
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-//----------- Passport -----------
-// app.dynamicHelpers({
-//   auth: function (req, res) {
-//     var map = {};
-//     map.isAuthenticated = req.isAuthenticated();
-//     map.user = req.user;
-//     return map;
-//   }
-// });
 
 
 //----------- Routes -----------

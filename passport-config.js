@@ -7,11 +7,13 @@ passport.use(new LocalStrategy({ usernameField: 'email' },
     {
         let [user, _] = await UserModel.findOne(username);
         
+        console.log(user);
+
         //check user exists
-        if (!user) 
+        if (!user[0]) 
         { 
             console.log("Incorrect username");
-            return done(null, false); 
+            return done(null, false, { message: 'invalid email address / email not found' }); 
         }
         else
         {
@@ -22,7 +24,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' },
         if (user[0].password !== password) 
         { 
             console.log('Incorrect password');
-            return done(null, false); 
+            return done(null, false, { message: 'invalid password' }); 
         }
         else
         {
@@ -30,7 +32,6 @@ passport.use(new LocalStrategy({ usernameField: 'email' },
         }
 
         //user was authenticated
-        //req.session.user = user[0].first_name;
         return done(null, user);
     }
 ));

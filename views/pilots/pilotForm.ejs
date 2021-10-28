@@ -1,6 +1,4 @@
-<!-- looking into css display: flex -->
-
-<form action="/crewRoute/createCrew" method="POST">
+<form action="/crewRoute/createCrew" method="POST" id="myForm" name="myForm">
     <fieldset>
         <legend>Add Aircrew</legend>
         <div class=".flex-container">
@@ -13,14 +11,17 @@
     <fieldset>
         <legend>Qualifications</legend>
         <div class="flex-container">
-            <div class="qual-item">
-                <input type="checkbox" id="isPilot" name="isPilot" value="1" checked> <br/>
-                <label for="isPilot">Pilot</label>
-            </div>
-            <div class="qual-item">
-                <input type="checkbox" id="isCrewChief" name="isCrewChief" value="1"> <br/>
-                <label for="flyUH60">Crew Chief</label>    
-            </div>
+
+            <fieldset>
+                <div class="qual-item">
+                    <input type="radio" id="pilot" name="myRadios" value="1" checked />
+                    <label for="pilot">Pilot</label>
+                    <input type="radio" id="crew" name="myRadios" value="1" />
+                    <label for="crew">Crew Chief</label>
+                </div>
+            </fieldset>
+        
+
             <div class="qual-item">
                 <input type="checkbox" id="PC" name="PC" value="1"> <br/>
                 <label for="flyUH60">PC</label>    
@@ -44,3 +45,22 @@
     <a class="btn" href="/userRoute/dashboard">CANCEL</a>
 </form>
 
+<script>
+    var radios = document.querySelectorAll('input[type=radio][name="myRadios"]');
+    radios.forEach(radio => radio.addEventListener('change', () => {
+        if (document.getElementById('crew').checked)
+        {
+            document.getElementById('PC').disabled = true;
+            document.getElementById('PI').disabled = true;
+            
+            document.getElementById('PC').checked = false;
+            document.getElementById('PI').checked = false;
+        }
+        else
+        {
+            document.getElementById('PC').disabled = false;
+            document.getElementById('PI').disabled = false;
+        }
+    }));
+    </script>
+</script>

@@ -19,6 +19,11 @@
             </div>
             <input class="btn" type="submit" name="submit" value="Sign In" onclick="userRoute/login">
             <a class="btn" href="/userRoute/register">Register</a>
+         <% if ( errors !== "" )
+            { %>
+                <a class="error" href=""> <%= errors %> </a>
+         <% }
+            %>
         </div>
     </form>
 </body>
