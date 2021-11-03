@@ -29,7 +29,7 @@ exports.logout = (req, res) => {
 // *****************************
 exports.reg = async (req, res, next) => {
     const errors = req.flash().error || "";
-    res.render('users/register.ejs', { layout: 'layouts/loginLayout', errors: errors });
+    res.render('users/register.ejs', { layout: 'layouts/regLayout'});
 }
 
 exports.submitReg = async (req, res, next) => {
