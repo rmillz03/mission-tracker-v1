@@ -28,7 +28,8 @@ exports.logout = (req, res) => {
 //         REGISTRATION
 // *****************************
 exports.reg = async (req, res, next) => {
-    res.render('users/register.ejs');
+    const errors = req.flash().error || "";
+    res.render('users/register.ejs', { layout: 'layouts/loginLayout', errors: errors });
 }
 
 exports.submitReg = async (req, res, next) => {
